@@ -212,8 +212,6 @@ dragify(ImageButton, ImageButton)
 
 ImageButtonScript()
     
-    _G.Logo = 14103696428
-    _G.Logo1 = 13717478897
     local UI = Instance.new("ScreenGui")
     UI.Name = randomString
     UI.Parent = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules")
@@ -905,21 +903,21 @@ ImageButtonScript()
     UICorner.Parent = MainToggle
     Text.Name = "Text"
     Text.Parent = MainToggle
-    Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Text.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
     Text.BackgroundTransparency = 1.000
     Text.Position = UDim2.new(0, 10, 0, 10)
     Text.Size = UDim2.new(0, 100, 0, 12)
     Text.ZIndex = 16
     Text.Font = Enum.Font.GothamBold
     Text.Text = Name
-    Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Text.TextColor3 = Color3.fromRGB(32, 32, 32)
     Text.TextSize = 12.000
     Text.TextTransparency = 0.4
     Text.TextXAlignment = Enum.TextXAlignment.Left
     MainToggle_2.Name = "MainToggle"
     MainToggle_2.Parent = MainToggle
     MainToggle_2.AnchorPoint = Vector2.new(0.5, 0.5)
-    MainToggle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    MainToggle_2.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
     MainToggle_2.ClipsDescendants = true
     MainToggle_2.Position = UDim2.new(0.899999976, 0, 0.5, 0)
     MainToggle_2.Size = UDim2.new(0, 23, 0, 23)

@@ -7,7 +7,7 @@ do
     local library = {}
     local titlefunc = {}
     local UIConfig = {
-      Bind = Enum.KeyCode.RightControl
+      Bind = Enum.KeyCode.End
     }
     local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     local length = 20
@@ -128,42 +128,89 @@ do
     )
     end
     
-    local ThunderScreen = Instance.new("ScreenGui")
-    local ThunderToggleUI = Instance.new("TextButton")
-    local ThunderCornerUI = Instance.new("UICorner")
-    local ThunderImageUI = Instance.new("ImageLabel")
-    local ThunderImageUI = Instance.new("ImageLabel")
-    
-            ThunderScreen.Name = "ThunderScreen"
-            ThunderScreen.Parent = game.CoreGui
-            ThunderScreen.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    
-            ThunderToggleUI.Name = "ThunderToggleUI"
-            ThunderToggleUI.Parent = ThunderScreen
-            ThunderToggleUI.BackgroundColor3 = Color3.fromRGB(31,31,31)
-            ThunderToggleUI.BorderSizePixel = 0
-            ThunderToggleUI.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-            ThunderToggleUI.Size = UDim2.new(0, 50, 0, 50)
-            ThunderToggleUI.Font = Enum.Font.SourceSans
-            ThunderToggleUI.Text = ""
-            ThunderToggleUI.TextColor3 = Color3.fromRGB(0, 0, 0)
-            ThunderToggleUI.TextSize = 14.000
-            ThunderToggleUI.Draggable = true
-            ThunderToggleUI.MouseButton1Click:Connect(function()
-            game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.RightControl,false,game)
-            end)
-    
-            ThunderCornerUI.Name = "ThunderCornerUI"
-            ThunderCornerUI.Parent = ThunderToggleUI
-    
-            ThunderImageUI.Name = "MODILEMAGE"
-            ThunderImageUI.Parent = ThunderToggleUI
-            ThunderImageUI.BackgroundColor3 = Color3.fromRGB(192,192,192)
-            ThunderImageUI.BackgroundTransparency = 1.000
-            ThunderImageUI.BorderSizePixel = 0
-            ThunderImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
-            ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
-            ThunderImageUI.Image = "http://www.roblox.com/asset/?id=13717478897"
+    function dragify(Frame, object)
+    dragToggle = nil
+    dragSpeed = .25
+    dragInput = nil
+    dragStart = nil
+    dragPos = nil
+    function updateInput(input)
+        Delta = input.Position - dragStart
+        Position =
+            UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+        game:GetService("TweenService"):Create(object, TweenInfo.new(dragSpeed), {Position = Position}):Play()
+    end
+    Frame.InputBegan:Connect(
+        function(input)
+            if
+                (input.UserInputType == Enum.UserInputType.MouseButton1 or
+                    input.UserInputType == Enum.UserInputType.Touch)
+            then
+                dragToggle = true
+                dragStart = input.Position
+                startPos = object.Position
+                input.Changed:Connect(
+                    function()
+                        if (input.UserInputState == Enum.UserInputState.End) then
+                            dragToggle = false
+                        end
+                    end
+                )
+            end
+        end
+    )
+    Frame.InputChanged:Connect(
+        function(input)
+            if
+                (input.UserInputType == Enum.UserInputType.MouseMovement or
+                    input.UserInputType == Enum.UserInputType.Touch)
+            then
+                dragInput = input
+            end
+        end
+    )
+    game:GetService("UserInputService").InputChanged:Connect(
+    function(input)
+        if (input == dragInput and dragToggle) then
+            updateInput(input)
+        end
+    end
+    )
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+local ClickSound = Instance.new("Sound")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.103761353, 0, 0.214939028, 0)
+ImageButton.Size = UDim2.new(0, 58, 0, 55)
+ImageButton.Image = "rbxassetid://16517330315"
+
+UICorner.Parent = ImageButton
+
+ClickSound.Name = "ClickSound"
+ClickSound.Parent = ScreenGui
+ClickSound.SoundId = "rbxassetid://8807795651"
+ClickSound.Volume = 1.0
+
+local function ImageButtonScript()
+    ImageButton.MouseButton1Click:Connect(function()
+        ClickSound:Play()
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
+    end)
+end
+
+dragify(ImageButton, ImageButton)
+
+ImageButtonScript()
     
     _G.Logo = 14103696428
     _G.Logo1 = 13717478897
@@ -1534,7 +1581,7 @@ do
     MainToggle_3.Position = UDim2.new(0.5, 0, 0.5, 0)
     MainToggle_3.Size = UDim2.new(0, 0, 0, 0)
     MainToggle_3.ZIndex = 16
-    MainToggle_3.Image = "http://www.roblox.com/asset/?id=6031068421"
+    MainToggle_3.Image = "http://www.roblox.com/asset/?id=17424207956"
     MainToggle_3.ImageColor3 = _G.Color
     MainToggle_3.Visible = false
     UICorner_3.CornerRadius = UDim.new(0, 3)

@@ -893,12 +893,6 @@ ImageButtonScript()
     MainToggle.Size = UDim2.new(0.975000024, 0, 0, 35)
     MainToggle.ZIndex = 16
     
-    local UiToggle_UiStroke1 = Instance.new("UIStroke")
-    UiToggle_UiStroke1.Color = Color3.fromRGB(60, 60, 60)
-    UiToggle_UiStroke1.Thickness = 1
-    UiToggle_UiStroke1.Name = "UiToggle_UiStroke1"
-    UiToggle_UiStroke1.Parent = MainToggle
-    
     UICorner.CornerRadius = UDim.new(1, 0)
     UICorner.Parent = MainToggle
     Text.Name = "Text"
@@ -910,7 +904,7 @@ ImageButtonScript()
     Text.ZIndex = 16
     Text.Font = Enum.Font.GothamBold
     Text.Text = Name
-    Text.TextColor3 = Color3.fromRGB(32, 32, 32)
+    Text.TextColor3 = Color3.fromRGB(255, 255, 255)
     Text.TextSize = 12.000
     Text.TextTransparency = 0.4
     Text.TextXAlignment = Enum.TextXAlignment.Left

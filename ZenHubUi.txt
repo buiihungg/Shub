@@ -884,7 +884,7 @@ ImageButtonScript()
     local MainToggle = Instance.new("Frame")
     local UICorner = Instance.new("UICorner")
     local Text = Instance.new("TextLabel")
-    local MainToggle_2 = Instance.new("ImageButton") -- Thay đổi từ ImageLabel thành ImageButton
+    local MainToggle_2 = Instance.new("ImageButton")
     local TextButton = Instance.new("TextButton")
     MainToggle.Name = "MainToggle"
     MainToggle.Parent = SectionContainer
@@ -901,7 +901,7 @@ ImageButtonScript()
     UiToggle_UiStroke1.Name = "UiToggle_UiStroke1"
     UiToggle_UiStroke1.Parent = MainToggle
     
-    UICorner.CornerRadius = UDim.new(1, 0) -- Đặt giá trị CornerRadius thành 1 để tạo hình tròn
+    UICorner.CornerRadius = UDim.new(1, 0)
     UICorner.Parent = MainToggle
     Text.Name = "Text"
     Text.Parent = MainToggle
@@ -919,7 +919,7 @@ ImageButtonScript()
     MainToggle_2.Name = "MainToggle"
     MainToggle_2.Parent = MainToggle
     MainToggle_2.AnchorPoint = Vector2.new(0.5, 0.5)
-    MainToggle_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    MainToggle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     MainToggle_2.ClipsDescendants = true
     MainToggle_2.Position = UDim2.new(0.899999976, 0, 0.5, 0)
     MainToggle_2.Size = UDim2.new(0, 23, 0, 23)
@@ -929,7 +929,7 @@ ImageButtonScript()
     MainToggle_2.Visible = false
     TextButton.Name = ""
     TextButton.Parent = MainToggle
-    TextButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TextButton.BackgroundTransparency = 1.000
     TextButton.BorderSizePixel = 0
     TextButton.Size = UDim2.new(1, 0, 1, 0)

@@ -242,7 +242,7 @@ ImageButtonScript()
     Main.Size = UDim2.new(0, 520, 0, 320)
     Main.ClipsDescendants = true
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
-    Main.BackgroundTransparency = 0
+    Main.BackgroundTransparency = 0.5
     
     local UiToggle_UiStroke256 = Instance.new("UIStroke")
     UiToggle_UiStroke256.Color = Color3.fromRGB(0, 0, 0)
